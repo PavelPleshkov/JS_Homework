@@ -27,10 +27,6 @@ a {
     }
 }
 
-// .show {
-//     display: none;
-// }
-
 .container {
     margin: 0 auto;
     height: 100vh;
@@ -99,7 +95,7 @@ a {
             &Btn {
                 display: flex;
                 align-items: center;
-                padding: 20px;
+                padding: 18px 20px;
                 position: fixed;
                 left: 5px;
                 border: none;
@@ -108,7 +104,6 @@ a {
                 color: #99a1b3;
 
                 &:hover {
-                    color: #ffffff;
                     color: #4f9cd4;
                 }
 
@@ -117,34 +112,39 @@ a {
                 }
 
                 i {
-                    font-size: 22px;
+                    font-size: 24px;
                 }
             }
 
             &List {
-                // display: flex;
-                // display: none;
+                display: flex;
                 flex-direction: column;
                 position: fixed;
                 top: 60px;
-                left: 0;
+                left: -10px;
+                max-height: 0;
                 color: #ffffff;
+                background-color: #646d81;
                 border: none;
                 border-radius: 10px;
                 overflow: hidden;
                 opacity: 0.9;
+                transition: 0.5s;
 
                 @media (min-width: 575.98px) {
                     display: none;
                 }
+
+                &_show {
+                    max-height: 100%;
+                }
             }
 
             &Item {
-                padding: 20px;
-                background-color: #646d81;
+                padding: 20px 20px 20px 40px;
 
                 &:hover {
-                    color: #333333;
+                    background-color: #000000;
                 }
             }
         }
@@ -460,9 +460,15 @@ a {
                         grid-template-columns: 1fr auto;
                         grid-template-rows: 40px;
                         box-sizing: border-box;
+                        width: 250px;
                         border: 1px solid #d6d9e1;
                         border-radius: 5px;
                         background-color: #ffffff;
+                        transition: 0.2s;
+
+                        &:hover {
+                            border-color: #333333;
+                        }
 
                         &Item {
                             background-color: #fff;
@@ -472,7 +478,6 @@ a {
                             padding: 2px 10px;
                             outline: none;
                             color:  #99a1b3;
-                            height: 100%;
 
                             &_txt {
                                 padding: 2px 10px;

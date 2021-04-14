@@ -1,14 +1,15 @@
 var mobileMenuBtn = document.querySelector('#mobileMenuBtn');
 var headerMobileMenuList = document.querySelector('.headerMobileMenuList');
+var headerMobileMenuItem = document.querySelector('.headerMobileMenuItem');
 
 mobileMenuBtn.addEventListener('click', toggleMenu);
 
 function toggleMenu() {
-    if (headerMobileMenuList.style.display == "none") {
-        headerMobileMenuList.style.display = "flex";
+    if (!headerMobileMenuList.classList.contains('headerMobileMenuList_show')) {
+        headerMobileMenuList.classList.add('headerMobileMenuList_show');
         mobileMenuBtn.innerHTML = '<i class="fa fa-close"></i>';
     } else {
-        headerMobileMenuList.style.display = "none";
+        headerMobileMenuList.classList.remove('headerMobileMenuList_show');
         mobileMenuBtn.innerHTML = '<i class="fa fa-navicon"></i>';
     }
 }

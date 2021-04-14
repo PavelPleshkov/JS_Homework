@@ -138,7 +138,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
+  padding: 18px 20px;
   position: fixed;
   left: 5px;
   border: none;
@@ -148,7 +148,6 @@ a {
 }
 
 .container .headerMobileMenuBtn:hover {
-  color: #ffffff;
   color: #4f9cd4;
 }
 
@@ -157,22 +156,29 @@ a {
 }
 
 .container .headerMobileMenuBtn i {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .container .headerMobileMenuList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   position: fixed;
   top: 60px;
-  left: 0;
+  left: -10px;
+  max-height: 0;
   color: #ffffff;
+  background-color: #646d81;
   border: none;
   border-radius: 10px;
   overflow: hidden;
   opacity: 0.9;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 @media (min-width: 575.98px) {
@@ -181,13 +187,16 @@ a {
   }
 }
 
+.container .headerMobileMenuList_show {
+  max-height: 100%;
+}
+
 .container .headerMobileMenuItem {
-  padding: 20px;
-  background-color: #646d81;
+  padding: 20px 20px 20px 40px;
 }
 
 .container .headerMobileMenuItem:hover {
-  color: #333333;
+  background-color: #000000;
 }
 
 .container .headerUserMenu {
@@ -579,9 +588,16 @@ a {
       grid-template-rows: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 250px;
   border: 1px solid #d6d9e1;
   border-radius: 5px;
   background-color: #ffffff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.container .content .mainContentSearchForm:hover {
+  border-color: #333333;
 }
 
 .container .content .mainContentSearchFormItem {
@@ -593,7 +609,6 @@ a {
   padding: 2px 10px;
   outline: none;
   color: #99a1b3;
-  height: 100%;
 }
 
 .container .content .mainContentSearchFormItem_txt {
