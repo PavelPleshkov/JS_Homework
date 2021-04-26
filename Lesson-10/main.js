@@ -20,7 +20,7 @@ Animal.prototype.dailyNorm = function(amount) {
 
 Animal.prototype.feed = function() {
     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-}
+};
 
 function Cat(name) {
     Animal.apply(this, arguments);
@@ -34,13 +34,13 @@ Cat.prototype.feed = function() {
     console.log('Кот доволен ^_^\n');
 
     return this;
-}
+};
 
 Cat.prototype.stroke = function() {
     console.log('Гладим кота.\n');
 
     return this;
-}
+};
 
 var barsik = new Cat('Барсик');
 
