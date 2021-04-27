@@ -123,6 +123,8 @@ function compareObj(obj1, obj2) {
                 } else if (obj1[key] !== obj2[key]) {
                     return false;
                 }
+            } else {
+                return false;
             }
         }
 
