@@ -106,6 +106,28 @@ console.log(clonedObj);
 
 
 //task3
-function compareObjects(obj1, obj2) {
+function compareObj(obj1, obj2) {
+    if (obj1 === obj2) return true;
+    
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+        // console.log(Object.keys(obj1).length + ' & ' + Object.keys(obj2).length + ' - different lengths of Object.keys() arrays');
 
+        return false;
+    } else {
+        for (var key in obj1) {
+            if (obj2.hasOwnProperty(key)) {
+                if (typeof obj1[key] == 'function' && typeof obj2[key] == 'function' && obj1[key].toString() != obj2[key].toString()) {
+                    return false;
+                } else if (typeof obj1[key] == 'object' && obj1[key] && typeof obj2[key] == 'object' && obj2[key]) {
+                    return compareObj(obj1[key], obj2[key]);
+                } else if (obj1[key] !== obj2[key]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }
+
+console.log(compareObj(initialObj, clonedObj));
