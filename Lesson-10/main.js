@@ -1,22 +1,22 @@
 // task1
 function Animal(name) {
     this.name = name;
-    this.foodAmount = 50;
+    this._foodAmount = 50;
 }
 
-Animal.prototype.formatFoodAmount = function() {
-    return this.foodAmount + ' гр.';
+Animal.prototype._formatFoodAmount = function() {
+    return this._foodAmount + ' гр.';
 };
 
 Animal.prototype.dailyNorm = function(amount) {
-    if (!arguments.length) return this.formatFoodAmount();
+    if (!arguments.length) return this._formatFoodAmount();
 
     if (amount < 50 || amount > 500) {
         // throw new Error(amount + ' гр. - что-то не то в миске! :(');
         return amount + ' гр. - что-то не то в миске! :(';
     }
 
-    this.foodAmount = amount;
+    this._foodAmount = amount;
 };
 
 Animal.prototype.feed = function() {
