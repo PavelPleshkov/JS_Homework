@@ -26,7 +26,7 @@ console.log(getTime(hms)); //Текущее время : 00 : 13 : 24
 
 
 // task 3
-function getQuantityOfVowels(str) {
+function getQuantityOfEngVowels(str) {
     var vowels = ['e', 'y', 'u', 'i', 'o', 'a'];
 
     return str.toLowerCase().split('').filter(function(item) {
@@ -35,7 +35,7 @@ function getQuantityOfVowels(str) {
 }
 
 var string = 'My name is ';
-console.log(getQuantityOfVowels(string)); //4
+console.log(getQuantityOfEngVowels(string)); //4
 
 
 // task 4
