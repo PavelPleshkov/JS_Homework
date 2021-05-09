@@ -9,28 +9,30 @@
 </head>
 <body>
     <div class="container">
-        <table class="table">
-            <tr>
-                <td class="tdData"><input type="text" name="" id=""></td>
-                <td class="tdData"></td>
-                <td class="tdData"></td>
-            </tr>
-            <tr>
-                <td class="tdData"></td>
-                <td class="tdData"></td>
-                <td class="tdData"></td>
-            </tr>
-            <tr>
-                <td class="tdData"></td>
-                <td class="tdData"></td>
-                <td class="tdData"></td>
-            </tr>
-            <tr>
-                <td class="tdBtn" colspan="3">
-                    <button type="button" class="addBtn">Add row</button>
-                </td>
-            </tr>
-        </table>    
+        <table id="data-table" class="table">
+            <tbody id="data-tableBody">
+                <tr>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                </tr>
+                <tr>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                </tr>
+                <tr>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                    <td class="tdData"></td>
+                </tr>
+                <tr>
+                    <td id="data-tdBtn" class="tdBtn" colspan="3">
+                        <button type="button" class="addBtn">Add row</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
    
     <script src="main.js"></script>

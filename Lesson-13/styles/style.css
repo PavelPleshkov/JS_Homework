@@ -42,7 +42,19 @@ body {
 .container .table .tdBtn .addBtn {
   width: 100%;
   height: 100%;
+  border: none;
+  background-color: transparent;
   text-transform: uppercase;
   font-weight: 700;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.container .table .tdBtn .addBtn:hover {
+  background-color: #f5b9b9;
+}
+
+.container .table .tdBtn .addBtn:active {
+  background-color: #f7abab;
 }
 /*# sourceMappingURL=style.css.map */
