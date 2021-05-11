@@ -29,14 +29,19 @@ body {
   background-color: #f1d7d7;
 }
 
-.container .table td {
+.container .table td, .container .table th {
   height: 40px;
 }
 
 .container .table .tdData {
   border: 1px solid #000000;
   padding: 0 30px;
-  width: 33%;
+  width: 200px;
+  overflow: hidden;
+}
+
+.container .table .tdData input {
+  width: 100%;
 }
 
 .container .table .tdBtn .addBtn {

@@ -28,14 +28,21 @@ body {
         border-collapse: collapse;
         background-color: #f1d7d7;
 
-        td {
+        td, th {
             height: 40px;
         }
 
         .tdData {
             border: 1px solid #000000;
             padding: 0 30px;
-            width: 33%;
+            width: 200px;
+            // max-width: 33%;
+            overflow: hidden;
+            // text-overflow: ellipsis;
+
+            input {
+                width: 100%;
+            }
         }
 
         .tdBtn {
