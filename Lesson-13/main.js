@@ -28,7 +28,9 @@ function activateTd(e) {
 
         function diactivateTdByEnter(event) {
             if (event.keyCode == 13) {
-                e.target.innerHTML = input.value;
+                // e.target.innerHTML = input.value;
+                input.blur();
+                console.log(input.value);
             }
         }
 
