@@ -41,7 +41,7 @@ body {
 .container .table td, .container .table th {
   width: 100%;
   min-height: 40px;
-  display: block;
+  border: 1px solid #000000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,10 +51,15 @@ body {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.container .table td:hover, .container .table th:hover {
+  background-color: #f7abab;
 }
 
 .container .table .tdData {
-  border: 1px solid #000000;
   padding: 0 30px;
   width: 200px;
   white-space: nowrap;
@@ -77,11 +82,7 @@ body {
   transition: .3s;
 }
 
-.container .table .thBtn .addBtn:hover {
-  background-color: #f5b9b9;
-}
-
 .container .table .thBtn .addBtn:active {
-  background-color: #f7abab;
+  background-color: #fa8c8c;
 }
 /*# sourceMappingURL=style.css.map */
