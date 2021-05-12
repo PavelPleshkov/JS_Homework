@@ -1,4 +1,4 @@
-var btn = document.getElementById('addBtn');
+var btn = document.getElementById('thBtn');
 var tableBody = document.getElementById('tableBody')
 var row = tableBody.firstElementChild.cloneNode(true);
 

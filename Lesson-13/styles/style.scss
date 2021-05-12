@@ -28,24 +28,36 @@ body {
         border-collapse: collapse;
         background-color: #f1d7d7;
 
+        tr {
+            display: flex;
+            align-items: stretch;
+        }
+
         td, th {
-            height: 40px;
+            width: 100%;
+            min-height: 40px;
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
         }
 
         .tdData {
             border: 1px solid #000000;
             padding: 0 30px;
             width: 200px;
+            // width: 33%;
             // max-width: 33%;
+            white-space: nowrap;
             overflow: hidden;
-            // text-overflow: ellipsis;
+            text-overflow: ellipsis;
 
             input {
                 width: 100%;
             }
         }
 
-        .tdBtn {
+        .thBtn {
 
             .addBtn {
                 width: 100%;
