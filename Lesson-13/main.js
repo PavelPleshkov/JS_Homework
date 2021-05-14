@@ -30,7 +30,7 @@ function activateTd(e) {
             if (event.keyCode == 13) {
                 // e.target.innerHTML = input.value;
                 input.blur();
-                console.log(input.value);
+                // console.log(input.value);
             }
         }
 
