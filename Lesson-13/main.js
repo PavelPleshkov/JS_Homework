@@ -37,10 +37,12 @@ function activateTd(e) {
         if (!e.target.innerHTML) {
             e.target.insertAdjacentElement('afterbegin', input);
             input.focus();
+            input.selectionStart = input.value.length;
         } else if (!e.target.firstElementChild) {
             e.target.innerHTML = '<input type="text" value ="' + e.target.innerHTML + '">';
             input = e.target.firstElementChild;
             input.focus();
+            input.selectionStart = input.value.length;cd
             input.addEventListener('blur', diactivateTd);
             input.addEventListener('keydown', diactivateTdByEnter);
         } else if (e.target.firstElementChild.tagName == 'INPUT') {
