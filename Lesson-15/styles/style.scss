@@ -20,6 +20,21 @@ body {
 
 #form {
     background-color: #5d5050;
+    color: #ffffff;
+    padding: 10px 50px;
 
-    
+    label {
+        display: block;
+        padding: 10px;
+
+        input {
+            padding: 3px 5px;
+        }
+    }
+
+    button {
+        margin: 10px 30px;
+        padding: 5px 10px;
+        
+    }
 }
