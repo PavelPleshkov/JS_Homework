@@ -37,4 +37,11 @@ body {
   margin: 10px 30px;
   padding: 5px 10px;
 }
+
+.board {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border: 1px solid #5d5050;
+}
 /*# sourceMappingURL=style.css.map */
