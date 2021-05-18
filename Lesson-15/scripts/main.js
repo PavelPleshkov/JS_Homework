@@ -4,14 +4,11 @@ var btn = document.getElementById('createBtn');
 var container = document.getElementById('container');
 var form = document.getElementById('form');
 
-console.dir(btn);
+// console.dir(btn);
+x.focus();
 
-// x.addEventListener('blur', checkValue);
-// y.addEventListener('blur', checkValue);
 btn.disabled = true;
 form.addEventListener('keyup', checkInputs)
-// x.addEventListener('keyup', checkValue);
-// y.addEventListener('keyup', checkValue);
 
 function checkInputs(e) {
     if (e.target.tagName == 'INPUT') {
@@ -22,12 +19,6 @@ function checkInputs(e) {
         }
     }
 }
-
-// if (x.value == '' || y.value == '') {
-//     btn.disabled = true;
-// } else {
-//     btn.disabled = false;
-// }
 
 btn.addEventListener('click', checkValues);
 btn.addEventListener('click', createBoard);
@@ -52,16 +43,50 @@ function checkValues(e) {
 }
 
 function createBoard(e) {
-    var board = document.createElement('div');
+    var board = document.createElement('table');
     board.classList.add('board');
     board.id = 'board';
 
-    if (container.children[1] || container.children[1].id != 'board') {
-        // var board = document.createElement('div');
+    var row = document.createElement('tr');
+    row.classList.add('row');
+    // row = row.cloneNode(true);
+    var cell = document.createElement('td');
+    cell.classList.add('cell');
+    // cell = cell.cloneNode(true);
+
+    if (!container.children[1] || container.children[1].id != 'board') {
         container.appendChild(board);
+        for (i = 1; i <= +y.value; i++) {
+            row = row.cloneNode(false);
+            board.appendChild(row);
+
+            for (j = 1; j <= +x.value; j++) {
+                cell = cell.cloneNode(true);
+                // if (!j%2) {
+                //     cell.classList.toggle('cellBlack');
+                // } else {
+                //     cell.classList.toggle('cellWhite');
+                // }
+                row.appendChild(cell);
+            }
+        }
+        // for (j = 0; j < +x.value; j++) {
+        //     cell = cell.cloneNode(true);
+        //     board.children[i].appendChild(cell);
+        // }
+
+
+        // board.appendChild(cell);
         // board.classList.add('board');
     } else {
-        container.replaceChild(container.children[1], board)
+        // container.replaceChild(board, container.children[1]);
+        // if (!container.children[1].classList.contains('red')) {
+        //     container.children[1].classList.add('red');
+        // } else {
+        //     container.children[1].classList.remove('red');
+        // }
+        // container.children[1].classList.toggle('red');
+        // board.classList.toggle('red');
     }
     
 }
