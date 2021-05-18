@@ -54,32 +54,20 @@ function createBoard(e) {
     cell.classList.add('cell');
     // cell = cell.cloneNode(true);
 
+    for (i = 1; i <= +y.value; i++) {
+        row = row.cloneNode(false);
+        board.appendChild(row);
+
+        for (j = 1; j <= +x.value; j++) {
+            cell = cell.cloneNode(true);
+            row.appendChild(cell);
+        }
+    }
+
     if (!container.children[1] || container.children[1].id != 'board') {
         container.appendChild(board);
-        for (i = 1; i <= +y.value; i++) {
-            row = row.cloneNode(false);
-            board.appendChild(row);
-
-            for (j = 1; j <= +x.value; j++) {
-                cell = cell.cloneNode(true);
-                // if (!j%2) {
-                //     cell.classList.toggle('cellBlack');
-                // } else {
-                //     cell.classList.toggle('cellWhite');
-                // }
-                row.appendChild(cell);
-            }
-        }
-        // for (j = 0; j < +x.value; j++) {
-        //     cell = cell.cloneNode(true);
-        //     board.children[i].appendChild(cell);
-        // }
-
-
-        // board.appendChild(cell);
-        // board.classList.add('board');
     } else {
-        // container.replaceChild(board, container.children[1]);
+        container.replaceChild(board, container.children[1]);
         // if (!container.children[1].classList.contains('red')) {
         //     container.children[1].classList.add('red');
         // } else {
