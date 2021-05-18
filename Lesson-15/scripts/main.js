@@ -49,18 +49,30 @@ function createBoard(e) {
 
     var row = document.createElement('tr');
     row.classList.add('row');
-    // row = row.cloneNode(true);
+
     var cell = document.createElement('td');
     cell.classList.add('cell');
-    // cell = cell.cloneNode(true);
 
     for (i = 1; i <= +y.value; i++) {
         row = row.cloneNode(false);
         board.appendChild(row);
+        if (i%2 == 0) {
+            cell.classList.add('cellWhite');
+        } else {
+            cell.classList.add('cellBlack');
+        }
 
         for (j = 1; j <= +x.value; j++) {
             cell = cell.cloneNode(true);
             row.appendChild(cell);
+
+            if (j%2 == 0) {
+                cell.classList.toggle('cellBlack');
+                cell.classList.toggle('cellWhite');
+            } else {
+                cell.classList.toggle('cellBlack');
+                cell.classList.toggle('cellWhite');
+            }
         }
     }
 
@@ -68,15 +80,7 @@ function createBoard(e) {
         container.appendChild(board);
     } else {
         container.replaceChild(board, container.children[1]);
-        // if (!container.children[1].classList.contains('red')) {
-        //     container.children[1].classList.add('red');
-        // } else {
-        //     container.children[1].classList.remove('red');
-        // }
-        // container.children[1].classList.toggle('red');
-        // board.classList.toggle('red');
     }
-    
 }
 
 // regExpInput = new RegExp('^([1-9]|10)$');
