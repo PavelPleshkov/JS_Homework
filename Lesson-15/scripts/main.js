@@ -4,7 +4,6 @@ var btn = document.getElementById('createBtn');
 var container = document.getElementById('container');
 var form = document.getElementById('form');
 
-// console.dir(btn);
 x.focus();
 
 btn.disabled = true;
@@ -47,33 +46,26 @@ function createBoard(e) {
     board.classList.add('board');
     board.id = 'board';
 
-    var row = document.createElement('tr');
-    row.classList.add('row');
-
-    var cell = document.createElement('td');
-    cell.classList.add('cell');
-
-    for (i = 1; i <= +y.value; i++) {
+    for (var i = 1; i <= +y.value; i++) {
+        var row = document.createElement('tr');
+        row.classList.add('row');
         row = row.cloneNode(false);
-        board.appendChild(row);
-        if (i%2 == 0) {
-            cell.classList.add('cellWhite');
-        } else {
-            cell.classList.add('cellBlack');
-        }
 
-        for (j = 1; j <= +x.value; j++) {
+        for (var j = 1; j <= +x.value; j++) {
+            var cell = document.createElement('td');
+            cell.classList.add('cell');
             cell = cell.cloneNode(true);
-            row.appendChild(cell);
 
-            if (j%2 == 0) {
-                cell.classList.toggle('cellBlack');
-                cell.classList.toggle('cellWhite');
+            if ((i+j)%2) {
+                cell.classList.add('cellBlack');
             } else {
-                cell.classList.toggle('cellBlack');
-                cell.classList.toggle('cellWhite');
+                cell.classList.add('cellWhite');
             }
+
+            row.appendChild(cell);
         }
+
+        board.appendChild(row);
     }
 
     if (!container.children[1] || container.children[1].id != 'board') {
@@ -81,22 +73,14 @@ function createBoard(e) {
     } else {
         container.replaceChild(board, container.children[1]);
     }
-}
 
-// regExpInput = new RegExp('^([1-9]|10)$');
-// var num = 5;
-// num = 10;
-// num = '1';
-// console.log(regExpInput.test(num));
-// function checkInput() {
-//     if (!regExpInput.test(x.value) && !regExpInput.test(y.value)) {
-//         alert('X and Y have to be integer 1 - 10');
-//         x.focus();
-//     } else if (!regExpInput.test(x.value)) {
-//         alert('X have to be integer 1 - 10');
-//         x.focus();
-//     } else if (!regExpInput.test(y.value)) {
-//         alert('Y have to be integer 1 - 10');
-//         y.focus();
-//     }
-// }
+    board.addEventListener('click', recolorBoard);
+
+    function recolorBoard() {
+        cells = board.getElementsByClassName('cell');
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].classList.toggle('cellWhite');
+            cells[i].classList.toggle('cellBlack');
+        }
+    }
+}
