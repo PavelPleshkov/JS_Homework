@@ -77,7 +77,8 @@ function createBoard(e) {
     board.addEventListener('click', recolorBoard);
 
     function recolorBoard() {
-        cells = board.getElementsByClassName('cell');
+        var cells = board.getElementsByClassName('cell');
+
         for (var i = 0; i < cells.length; i++) {
             cells[i].classList.toggle('cellWhite');
             cells[i].classList.toggle('cellBlack');

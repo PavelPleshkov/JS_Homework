@@ -40,6 +40,18 @@ body {
   background-color: #3d1d1d;
 }
 
+#form button:disabled {
+  background-color: #9d9999;
+  border-top-color: #2e2727;
+  border-left-color: #2e2727;
+  border-bottom-color: #eeeeee;
+  border-right-color: #eeeeee;
+}
+
+#form button:enabled:hover {
+  background-color: #6a3434;
+}
+
 .board {
   margin: 20px 50px;
   border-collapse: collapse;
@@ -56,7 +68,7 @@ body {
 .board .row .cell {
   width: 30px;
   height: 30px;
-  border: 1px solid red;
+  border: 1px solid #5d5050;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
