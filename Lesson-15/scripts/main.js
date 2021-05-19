@@ -7,14 +7,17 @@ var form = document.getElementById('form');
 x.focus();
 
 btn.disabled = true;
+btn.setAttribute('title', 'Fill inputs and CLICK ME');
 form.addEventListener('keyup', checkInputs)
 
 function checkInputs(e) {
     if (e.target.tagName == 'INPUT') {
         if (x.value == '' || y.value == '') {
             btn.disabled = true;
+            btn.setAttribute('title', 'Fill inputs and CLICK ME');
         } else {
             btn.disabled = false;
+            btn.setAttribute('title', 'CLICK ME NOW!');
         }
     }
 }
