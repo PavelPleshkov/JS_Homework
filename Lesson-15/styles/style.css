@@ -38,6 +38,16 @@ body {
   padding: 10px 20px;
   color: #ffffff;
   background-color: #3d1d1d;
+  border-top-color: #907979;
+  border-left-color: #907979;
+  border-bottom-color: #2e2727;
+  border-right-color: #2e2727;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#form button:active {
+  border-color: transparent;
 }
 
 #form button:disabled {

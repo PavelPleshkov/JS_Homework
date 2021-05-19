@@ -37,6 +37,16 @@ body {
         padding: 10px 20px;
         color: #ffffff;
         background-color: #3d1d1d;
+        border-top-color: #907979;
+        border-left-color: #907979;
+        border-bottom-color: #2e2727;
+        border-right-color: #2e2727;
+        transition: .2s;
+
+        &:active {
+            border-color: transparent;
+            // padding: 9px 21px 11px 19px;
+        }
 
         &:disabled {
             background-color: #9d9999;
