@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  background-color: #eeeeee;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background-color: #c1c1c1;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 20px 30px;
+}
+
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  background-color: bisque;
+}
+
+.main #getBtn {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: inherit;
+}
+/*# sourceMappingURL=style.css.map */
