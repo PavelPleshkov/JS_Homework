@@ -25,13 +25,25 @@ body {
   background-color: bisque;
 }
 
+.main .errorBlock {
+  padding: 20px;
+  color: #ff0000;
+}
+
 .main #getBtn {
   display: block;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px 20px;
   border-radius: 10px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-family: inherit;
+}
+
+.error {
+  background-color: #fdbaba;
 }
 /*# sourceMappingURL=style.css.map */

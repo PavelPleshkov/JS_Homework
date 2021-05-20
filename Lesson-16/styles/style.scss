@@ -22,8 +22,16 @@ body {
     grid-template-columns: 1fr auto;
     background-color: bisque;
 
+    .errorBlock {
+        // background-color: #fdbaba;
+        padding: 20px;
+        color:#ff0000;
+    }
+
     #getBtn {
         display: block;
+        height: 40px;
+        box-sizing: border-box;
         padding: 10px 20px;
         border-radius: 10px;
         width: fit-content;
@@ -35,4 +43,8 @@ body {
     //     display: block;
     //     clear: both;
     // }
+}
+
+.error {
+    background-color: #fdbaba;
 }
