@@ -13,3 +13,7 @@ Homework: [Inputs in table](https://pavelpleshkov.github.io/JS_Homework/Lesson-1
 Practice: [Links to LS](https://pavelpleshkov.github.io/JS_Homework/Lesson-15-practice/ "Practice 15")
 
 Homework: [Chess board](https://pavelpleshkov.github.io/JS_Homework/Lesson-15/ "Homework 15")
+
+## Lesson 16
+
+Homework: [Get users](https://pavelpleshkov.github.io/JS_Homework/Lesson-16/ "Homework 16")
