@@ -28,6 +28,47 @@ body {
         color:#ff0000;
     }
 
+    .users {
+
+        &List {
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(6, 1fr);
+            // display: flex;
+            // justify-content: space-between;
+            // align-items: stretch;
+            background-color: #a7ecff;
+        }
+
+        .user {
+            &Link {
+                display: block;
+                text-decoration: none;
+                color: #000000;
+                background-color: #ffffff;
+                border: 1px solid #000000;
+                padding: 10px 20px;
+                text-align: center;
+                // width: 100%;
+
+                &Active {
+                    background-color: #86f790;
+                }
+            }
+
+            &Data {
+                padding: 40px;
+
+                &Img {
+                    display: block;
+                    width: 128px;
+                    height: 128px;
+                }
+            }
+        }
+    }
+
     #getBtn {
         display: block;
         height: 40px;
