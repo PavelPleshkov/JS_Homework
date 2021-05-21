@@ -59,11 +59,30 @@ body {
 
             &Data {
                 padding: 40px;
+                display: grid;
+                grid-template-columns: auto 1fr;
 
                 &Img {
                     display: block;
                     width: 128px;
                     height: 128px;
+                    margin-right: 30px;
+                }
+
+                &Name {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    &First {
+                        display: block;
+                        padding: 5px 0;
+                    }
+
+                    &Last {
+                        display: block;
+                        padding: 5px 0;
+                    }
                 }
             }
         }

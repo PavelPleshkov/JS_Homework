@@ -3,6 +3,10 @@ var main = document.getElementsByClassName('main')[0];
 var btn = document.getElementById('getBtn');
 var users = document.getElementsByClassName('users')[0];
 
+// window.onload = function() {
+//     localStorage.getItem('data');
+// }
+
 btn.addEventListener('click', getData);
 
 function getData() {
@@ -17,6 +21,7 @@ function getData() {
         if (statusType === 2) {
             var data = JSON.parse(this.response).data;
             console.log(JSON.parse(this.response).data);
+            // localStorage.setItem('data', JSON.stringify(data));
 
             var usersList = document.createElement('div');
             usersList.classList.add('usersList');
@@ -41,9 +46,33 @@ function getData() {
                     }
                     activeLink = e.target;
                     activeLink.classList.add('userLinkActive');
+                    userImg.setAttribute('src', getImg(data));
+                    function getImg(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].id == activeLink.id) {
+                                return data[i].avatar;
+                            }
+                        }
+                    }
+                    userFirstName.innerHTML = 'First Name: ' + getFirstName(data);
+                    function getFirstName(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].id == activeLink.id) {
+                                return data[i].first_name;
+                            }
+                        }
+                    }
+                    userLastName.innerHTML = 'Last Name: ' + getLastName(data);
+                    function getLastName(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].id == activeLink.id) {
+                                return data[i].last_name;
+                            }
+                        }
+                    }
                 }
-
             }
+            
 
 
             for (var i = 0; i < data.length; i++) {
@@ -72,16 +101,35 @@ function getData() {
             }
 
             var userImg = document.createElement('img');
+            var userName = document.createElement('div');
+            var userFirstName = document.createElement('p');
+            var userLastName = document.createElement('p');
 
             userImg.classList.add('userDataImg');
             userImg = userImg.cloneNode(true);
-            // userData.appendChild(userImg);
+            userData.appendChild(userImg);
+
+            userName.classList.add('userDataName');
+            userName = userName.cloneNode(true);
+            userData.appendChild(userName);
+
+            userFirstName.classList.add('userDataNameFirst');
+            userFirstName = userFirstName.cloneNode(true);
+            userName.appendChild(userFirstName);
+
+            userLastName.classList.add('userDataNameLast');
+            userLastName = userLastName.cloneNode(true);
+            userName.appendChild(userLastName);
+
+            if (usersList.children[0].classList.contains('userLinkActive')) {
+                userImg.setAttribute('src', data[0].avatar);
+                userFirstName.innerHTML = 'First Name: ' + data[0].first_name;
+                userLastName.innerHTML = 'Last Name: ' + data[0].last_name;
+            }
 
             for (i = 0; i < data.length; i++) {
-                // userImg.setAttribute('src', data[i].avatar);
                 console.log(data[i].avatar);
             }
-            userData.appendChild(userImg);
 
         } else {
             console.log(this.status);
