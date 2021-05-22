@@ -23,7 +23,7 @@ function getData() {
         if (statusType === 2) {
             var data = JSON.parse(this.response).data;
             console.log(JSON.parse(this.response).data);
-            // localStorage.setItem('data', JSON.stringify(data));
+            localStorage.setItem('data', JSON.stringify(data));
 
             var usersList = document.createElement('div');
             usersList.classList.add('usersList');
@@ -33,7 +33,6 @@ function getData() {
             } else {
                 users.appendChild(usersList);
             }
-            
 
             usersList.addEventListener('click', activateUser);
             var activeLink;
@@ -49,7 +48,6 @@ function getData() {
                     activeLink = e.target;
                     activeLink.classList.add('userLinkActive');
 
-                    userImg.setAttribute('src', getUserData(data).photo);
                     // userImg.setAttribute('src', getImg(data));
                     // function getImg(data) {
                     //     for (var i = 0; i < data.length; i++) {
@@ -59,7 +57,6 @@ function getData() {
                     //     }
                     // }
 
-                    userFirstName.innerHTML = 'First Name: ' + getUserData(data).firstName;
                     // userFirstName.innerHTML = 'First Name: ' + getFirstName(data);
                     // function getFirstName(data) {
                     //     for (var i = 0; i < data.length; i++) {
@@ -69,7 +66,6 @@ function getData() {
                     //     }
                     // }
 
-                    userLastName.innerHTML = 'Last Name: ' + getUserData(data).lastName;
                     // userLastName.innerHTML = 'Last Name: ' + getLastName(data);
                     // function getLastName(data) {
                     //     for (var i = 0; i < data.length; i++) {
@@ -79,23 +75,44 @@ function getData() {
                     //     }
                     // }
 
-                    function getUserData(data) {
-                        for (var i = 0; i < data.length; i++) {
-                            if (data[i].id == activeLink.id) {
-                                var user = new User(data[i]);
-                                console.log(user);
-                                return user;
-                            }
-                        }
-                    }
+                    userImg.setAttribute('src', getUserData(data).avatar);
+                    userFirstName.innerHTML = 'First Name: ' + getUserData(data).firstName;
+                    userLastName.innerHTML = 'Last Name: ' + getUserData(data).lastName;
 
-                    function User(obj) {
-                        this.firstName = obj.first_name;
-                        this.lastName = obj.last_name;
-                        this.photo = obj.avatar;
-                        this.id = obj.id;
+                    // function getUserData(data) {
+                    //     for (var i = 0; i < data.length; i++) {
+                    //         if (data[i].id == activeLink.id) {
+                    //             var user = new User(data[i]);
+                    //             console.log(user);
+                    //             return user;
+                    //         }
+                    //     }
+                    // }
+
+                    // function User(obj) {
+                    //     this.firstName = obj.first_name;
+                    //     this.lastName = obj.last_name;
+                    //     this.avatar = obj.avatar;
+                    //     this.id = obj.id;
+                    // }
+                }
+            }
+
+            function getUserData(data) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].id == activeLink.id) {
+                        var user = new User(data[i]);
+                        console.log(user);
+                        return user;
                     }
                 }
+            }
+
+            function User(obj) {
+                this.firstName = obj.first_name;
+                this.lastName = obj.last_name;
+                this.avatar = obj.avatar;
+                this.id = obj.id;
             }
             
 
@@ -150,11 +167,15 @@ function getData() {
                 userImg.setAttribute('src', data[0].avatar);
                 userFirstName.innerHTML = 'First Name: ' + data[0].first_name;
                 userLastName.innerHTML = 'Last Name: ' + data[0].last_name;
+                // userImg.setAttribute('src', getUserData(data).avatar);
+                
+                // userFirstName.innerHTML = 'First Name: ' + getUserData(data).firstName;
+                // userLastName.innerHTML = 'Last Name: ' + getUserData(data).lastName;
             }
 
-            for (i = 0; i < data.length; i++) {
-                console.log(data[i].avatar);
-            }
+            // for (i = 0; i < data.length; i++) {
+            //     console.log(data[i].avatar);
+            // }
 
         } else {
             console.log(this.status);

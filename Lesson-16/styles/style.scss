@@ -20,10 +20,14 @@ body {
 .main {
     display: grid;
     grid-template-columns: 1fr auto;
-    background-color: bisque;
+    // background-color: bisque;
+
+    @media (max-width: 767.98px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
     .errorBlock {
-        // background-color: #fdbaba;
         padding: 20px;
         color:#ff0000;
     }
@@ -35,10 +39,6 @@ body {
             display: grid;
             grid-template-rows: auto;
             grid-template-columns: repeat(6, 1fr);
-            // display: flex;
-            // justify-content: space-between;
-            // align-items: stretch;
-            background-color: #a7ecff;
         }
 
         .user {
@@ -47,13 +47,17 @@ body {
                 text-decoration: none;
                 color: #000000;
                 background-color: #ffffff;
-                border: 1px solid #000000;
+                border: 1px solid #603e3e;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
                 padding: 10px 20px;
                 text-align: center;
                 // width: 100%;
 
                 &Active {
-                    background-color: #86f790;
+                    background-color: #603e3e;
+                    color: #ffffff;
+                    border-bottom: none;
                 }
             }
 
@@ -61,12 +65,17 @@ body {
                 padding: 40px;
                 display: grid;
                 grid-template-columns: auto 1fr;
+                background-color: #603e3e;
+                color: #ffffff;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
 
                 &Img {
                     display: block;
                     width: 128px;
                     height: 128px;
                     margin-right: 30px;
+                    border-radius: 5px;
                 }
 
                 &Name {
@@ -90,13 +99,18 @@ body {
 
     #getBtn {
         display: block;
+        margin-left: 20px;
         height: 40px;
         box-sizing: border-box;
         padding: 10px 20px;
         border-radius: 10px;
         width: fit-content;
         font-family: inherit;
-        // float: right;
+
+        @media (max-width: 767.98px) {
+            margin-bottom: 10px;
+            align-self: flex-end;
+        }
     }
     // &::after {
     //     content: '';
