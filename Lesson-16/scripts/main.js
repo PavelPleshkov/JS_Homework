@@ -18,6 +18,8 @@ function getData() {
     request.onload = function () {
         var statusType = Math.round(this.status / 100);
 
+        // console.log((statusType === 2) ? JSON.parse(this.response).data : this.status);
+
         if (statusType === 2) {
             var data = JSON.parse(this.response).data;
             console.log(JSON.parse(this.response).data);
@@ -46,29 +48,52 @@ function getData() {
                     }
                     activeLink = e.target;
                     activeLink.classList.add('userLinkActive');
-                    userImg.setAttribute('src', getImg(data));
-                    function getImg(data) {
+
+                    userImg.setAttribute('src', getUserData(data).photo);
+                    // userImg.setAttribute('src', getImg(data));
+                    // function getImg(data) {
+                    //     for (var i = 0; i < data.length; i++) {
+                    //         if (data[i].id == activeLink.id) {
+                    //             return data[i].avatar;
+                    //         }
+                    //     }
+                    // }
+
+                    userFirstName.innerHTML = 'First Name: ' + getUserData(data).firstName;
+                    // userFirstName.innerHTML = 'First Name: ' + getFirstName(data);
+                    // function getFirstName(data) {
+                    //     for (var i = 0; i < data.length; i++) {
+                    //         if (data[i].id == activeLink.id) {
+                    //             return data[i].first_name;
+                    //         }
+                    //     }
+                    // }
+
+                    userLastName.innerHTML = 'Last Name: ' + getUserData(data).lastName;
+                    // userLastName.innerHTML = 'Last Name: ' + getLastName(data);
+                    // function getLastName(data) {
+                    //     for (var i = 0; i < data.length; i++) {
+                    //         if (data[i].id == activeLink.id) {
+                    //             return data[i].last_name;
+                    //         }
+                    //     }
+                    // }
+
+                    function getUserData(data) {
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].id == activeLink.id) {
-                                return data[i].avatar;
+                                var user = new User(data[i]);
+                                console.log(user);
+                                return user;
                             }
                         }
                     }
-                    userFirstName.innerHTML = 'First Name: ' + getFirstName(data);
-                    function getFirstName(data) {
-                        for (var i = 0; i < data.length; i++) {
-                            if (data[i].id == activeLink.id) {
-                                return data[i].first_name;
-                            }
-                        }
-                    }
-                    userLastName.innerHTML = 'Last Name: ' + getLastName(data);
-                    function getLastName(data) {
-                        for (var i = 0; i < data.length; i++) {
-                            if (data[i].id == activeLink.id) {
-                                return data[i].last_name;
-                            }
-                        }
+
+                    function User(obj) {
+                        this.firstName = obj.first_name;
+                        this.lastName = obj.last_name;
+                        this.photo = obj.avatar;
+                        this.id = obj.id;
                     }
                 }
             }
@@ -135,7 +160,6 @@ function getData() {
             console.log(this.status);
             showError(this);
         }
-        // console.log((statusType === 2) ? JSON.parse(this.response).data : this.status);
     };
 
     request.onerror = function() {
