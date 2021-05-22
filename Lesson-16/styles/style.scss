@@ -20,7 +20,6 @@ body {
 .main {
     display: grid;
     grid-template-columns: 1fr auto;
-    // background-color: bisque;
 
     @media (max-width: 767.98px) {
         display: flex;
@@ -52,12 +51,19 @@ body {
                 border-top-right-radius: 10px;
                 padding: 10px 20px;
                 text-align: center;
-                // width: 100%;
+
+                &:hover {
+                    background-color: #f1cbcb;
+                }
 
                 &Active {
                     background-color: #603e3e;
                     color: #ffffff;
                     border-bottom: none;
+
+                    &:hover {
+                        background-color: #603e3e;
+                    }
                 }
             }
 
@@ -112,11 +118,6 @@ body {
             align-self: flex-end;
         }
     }
-    // &::after {
-    //     content: '';
-    //     display: block;
-    //     clear: both;
-    // }
 }
 
 .error {

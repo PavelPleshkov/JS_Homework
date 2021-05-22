@@ -63,10 +63,18 @@ body {
   text-align: center;
 }
 
+.main .users .userLink:hover {
+  background-color: #f1cbcb;
+}
+
 .main .users .userLinkActive {
   background-color: #603e3e;
   color: #ffffff;
   border-bottom: none;
+}
+
+.main .users .userLinkActive:hover {
+  background-color: #603e3e;
 }
 
 .main .users .userData {
