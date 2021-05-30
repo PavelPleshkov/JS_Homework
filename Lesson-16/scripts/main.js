@@ -19,7 +19,12 @@ function getData() {
     var request = new XMLHttpRequest();
 
     request.open('GET', 'https://reqres.in/api/users?page=2', true);
-    request.send();
+    if (!localStorage.getItem('data')) {
+        request.send();
+    } else {
+        showData(JSON.parse(localStorage.getItem('data')));
+        // console.log('localStorage works');
+    }
 
     request.onload = function () {
         var statusType = Math.round(this.status / 100);
