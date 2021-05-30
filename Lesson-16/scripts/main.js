@@ -23,7 +23,7 @@ function getData() {
         request.send();
     } else {
         showData(JSON.parse(localStorage.getItem('data')));
-        console.log('localStorage works');
+        // console.log('localStorage works');
         return;
     }
 
