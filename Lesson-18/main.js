@@ -9,10 +9,8 @@
 //     кроме начала и конца *
 //   + - обязательная часть .com
 // Хорошо протестировать регулярное выражение.
-
-
-var pattern = '^[a-z]{3,10}_[a-z]{3,10}(-[\\d]{4})?@[a-z\\d]{2,20}.com$';
-var pattern = '^[a-z]{3,10}_[a-z]{3,10}(-[\\d]{4})?@[a-z\\d]{1,10}[\\.-]?[a-z\\d]{1,10}.com$';
+// task1
+var pattern = '^[a-z]{3,10}_[a-z]{3,10}(-\\d{4})?@[a-z\\d]{1,10}[\\.-]?[a-z\\d]{1,10}\\.com$';
 
 var regexp = new RegExp(pattern, 'i');
 
@@ -40,19 +38,21 @@ console.log(regexp.test(str));
 //         таким, как в примерах 1 и 3
 
 //     Перед отправкой постараться максимально оптимизировать своё решение и убрать все лишнее.
-
+//task2
 function validate(str, pattern) {
-    var regexp = new RegExp(pattern, 'i');
+    var regexp = new RegExp(pattern);
 
     return regexp.test(str);
 }
 
-var pattern = '^(([\+]?375)|8-?0)-?(25|29|33|44|17)-?[1-9]{1}([\\d]{2}-?){2}[\\d]{2}$';
+var pattern = '^((\\+?375-?)|(8-?0))(25|29|33|44|17)-?[1-9](\\d{2}-?){2}\\d{2}$';
 
 console.log(validate('+375-25-777-77-77', pattern));
 console.log(validate('375299999999', pattern));
 console.log(validate('8-044-444-44-44', pattern));
 console.log(validate('8033-6666666', pattern));
+console.log(validate('8-0-33-6666666', pattern));//false
+console.log(validate('80-33-6666666', pattern));//false
 console.log(validate('-8033-6666666', pattern));//false
 console.log(validate('8033-666666-6', pattern));//false
 console.log(validate('8033-0666666', pattern));//false
