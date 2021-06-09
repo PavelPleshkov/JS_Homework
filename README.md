@@ -17,3 +17,8 @@ Homework: [Chess board](https://pavelpleshkov.github.io/JS_Homework/Lesson-15/ "
 ## Lesson 16
 
 Homework: [Get users](https://pavelpleshkov.github.io/JS_Homework/Lesson-16/ "Homework 16")
+
+
+## Lesson 19
+
+Homework: [Timer](https://pavelpleshkov.github.io/JS_Homework/Lesson-19/ "Homework 19")
