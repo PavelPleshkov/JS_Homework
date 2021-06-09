@@ -10,6 +10,7 @@ body {
 .container {
   display: -ms-grid;
   display: grid;
+  min-height: 100vh;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
   -ms-grid-columns: 1fr;
@@ -17,20 +18,23 @@ body {
   background-color: #c1c1c1;
   max-width: 1140px;
   margin: 0 auto;
-  height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 .main {
   width: 400px;
-  background-color: aqua;
+  background-color: #9d9999;
   margin: 0 auto;
 }
 
-.main .mainBtn {
+.main .btn {
   display: block;
-  min-width: 100px;
-  margin: 0 auto;
+  width: 200px;
+  height: 40px;
   padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
   color: #ffffff;
   background-color: #3d1d1d;
   border-radius: 10px;
@@ -42,11 +46,19 @@ body {
   transition: .2s;
 }
 
-.main .mainBtn:active {
-  border-color: transparent;
+.main .btnControl {
+  margin: 50px auto;
 }
 
-.main .mainBtn:disabled {
+.main .btnReset, .main .btnSave {
+  margin: 20px auto;
+}
+
+.main .btn:active {
+  border-color: #9d9999;
+}
+
+.main .btn:disabled {
   background-color: #9d9999;
   border-top-color: #2e2727;
   border-left-color: #2e2727;
@@ -54,7 +66,44 @@ body {
   border-right-color: #eeeeee;
 }
 
-.main .mainBtn:enabled:hover {
+.main .btn:enabled:hover {
   background-color: #6a3434;
+}
+
+.main .watch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+.main .watch div {
+  width: 80px;
+  margin: 10px 2px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 3px solid #2e2727;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+}
+
+.main .results {
+  margin: 20px 40px;
+  border: 3px solid #2e2727;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+}
+
+.main .results .result {
+  padding: 10px 30px;
+  margin: 0 auto;
+  height: 20px;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
