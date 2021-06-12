@@ -1,6 +1,15 @@
+// $mainColor: #ffcc0036;
+$baseColor: #{#ffbb00};
+$mainColor: #{$baseColor}16;
+$wrapperColor: #{$baseColor}66;
+$titleColor: #{$baseColor}37;
+// $titleColor: transparentize(#{$baseColor}, 0.37);
+// $textColor: lighten($baseColor, 50%);
+
 * {
     margin: 0;
     padding: 0;
+    // color:lighten($color: #000000, $amount: 0);
 }
 
 body {
@@ -19,12 +28,15 @@ a {
     width: 100%;
     // background-color: #6c4b2c;
     // background-image: url("../images/wp2639533-gym-wallpaper-hd.jpg");
-    background: #45301c url("../images/582d763a59515.jpg");
-    background-blend-mode: luminosity;
+    // background: #45301c url("../images/582d763a59515.jpg");
+    // background: $baseColor url("../images/582d763a59515.jpg");
+    background: url("../images/582d763a59515.jpg");
+    // background-blend-mode: multiply;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    box-shadow: inset 0 0 125px 30px #ffcb0066;
+    // box-shadow: inset 0 0 125px 30px #ffcc0066;
+    box-shadow: inset 0 0 125px 30px $wrapperColor;
 }
 
 .container {
@@ -36,6 +48,7 @@ a {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     color:#ffe1dd;
+    // color: $textColor;
     font-family: 'Lato', sans-serif;
     // background-color: #98918b8b;
     background-color: #0000008a;
@@ -66,14 +79,14 @@ a {
 
     &Title {
         padding: 10px;
-        color: #3831308e;
-        color: #ffcc0037;
+        // color: #3831308e;
+        color: $titleColor;
         font-size: 35px;
         font-weight: 400;
         text-transform: uppercase;
         text-align: center;
         // text-shadow: 0px 5px 5px #ffe1dd;
-        text-shadow: 0px 5px 5px #ffcc0016;
+        text-shadow: 0px 5px 5px $mainColor;
 
         @media (min-width: 768px) {
             margin-top: 20px;
@@ -159,9 +172,10 @@ a {
         }
 
         &:active,
-        &Active {
-            border-color: #9d9999;
-            background-color: #ffcc0016;
+        &Active,
+        &Active:hover {
+            // border-color: #9d9999;
+            background-color: $mainColor;
             transform: scale(0.97);
 
             span::before {
@@ -186,6 +200,6 @@ a {
         // border: 2px solid #fff;
         border-radius: 10px;
         // background-color: red;
-        background-color: #ffcc0016;
+        background-color: $mainColor;
     }
 }
