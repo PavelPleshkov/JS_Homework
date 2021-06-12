@@ -20,35 +20,172 @@ a {
     // background-color: #6c4b2c;
     // background-image: url("../images/wp2639533-gym-wallpaper-hd.jpg");
     background: #45301c url("../images/582d763a59515.jpg");
-    background-blend-mode: multiply;
+    background-blend-mode: luminosity;
     background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 125px 30px #ffcb0066;
 }
 
 .container {
     min-height: 100vh;
-    width: 1140px;
+    // width: 1140px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     color:#ffe1dd;
     font-family: 'Lato', sans-serif;
-    background-color: #98918b8b;
+    // background-color: #98918b8b;
+    background-color: #0000008a;
+    box-shadow: 0 0 80px 30px #000000b5;
+
+    @media (min-width: 576px) {
+        width: 540px;
+    }
+
+    @media (min-width: 768px) {
+        width: 720px;
+    }
+
+    @media (min-width: 992px) {
+        width: 960px;
+    }
 
     @media (min-width: 1200px) {
         width: 1140px;
     }
-    
-    @media (min-width: 991px) {
-        width: 960px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+
+    &Title {
+        padding: 10px;
+        color: #3831308e;
+        color: #ffcc0037;
+        font-size: 35px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        // text-shadow: 0px 5px 5px #ffe1dd;
+        text-shadow: 0px 5px 5px #ffcc0016;
+
+        @media (min-width: 768px) {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 50px;
+        }
     }
 
-    @media (min-width: 767px) {
-        width: 720px;
+    &Content {
+        padding: 20px;
+        // text-shadow: 0px 5px 5px #ffe1dd;
+        font-size: 25px;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            font-size: 35px;
+        }
     }
 
-    @media (max-width: 575px) {
-        width: 100%;
+    &Btns {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        margin: 0;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            margin: 20px;
+        }
+    }
+
+    &Btn {
+        display: block;
+        padding: 10px 20px;
+        margin: 10px;
+        width: 200px;
+        // height: 40px;
+        box-sizing: border-box;
+        color: inherit;
+        font: 200 14px 'Lato', sans-serif;
+        // background-color: #ffffff12;
+        background-color: transparent;
+        border-radius: 10px;
+        border-top-color: #907979;
+        border-left-color: #907979;
+        border-bottom-color: #2e2727;
+        border-right-color: #2e2727;
+        transition: .2s;
+        border-width: 3px;
+        border-color: transparent;
+
+        @media (min-width: 992px) {
+            margin: 20px;
+        }
+
+        // &:disabled {
+        //     background-color: #9d9999;
+        //     border-top-color: #2e2727;
+        //     border-left-color: #2e2727;
+        //     border-bottom-color: #eeeeee;
+        //     border-right-color: #eeeeee;
+        // }
+        &:hover {
+        // &:enabled:hover {
+            // background-color: transparent;
+            background-color: #ffffff12;
+
+            span {
+                display: block;
+            }
+
+            span::before {
+                content: "\f105";
+                font-family: FontAwesome;
+                margin-right: 20px;
+            }
+
+            span::after {
+                content: "\f104";
+                font-family: FontAwesome;
+                margin-left: 20px;
+            }
+        }
+
+        &:active,
+        &Active {
+            border-color: #9d9999;
+            background-color: #ffcc0016;
+            transform: scale(0.97);
+
+            span::before {
+                content: "\f101";
+                font-family: FontAwesome;
+                margin-right: 20px;
+            }
+
+            span::after {
+                content: "\f100";
+                font-family: FontAwesome;
+                margin-left: 20px;
+            }
+        }
+    }
+
+    &Info{
+        // width: 100%;
+        // height: 20px;
+        padding: 10px 20px;
+        margin: 10px 20px;
+        // border: 2px solid #fff;
+        border-radius: 10px;
+        // background-color: red;
+        background-color: #ffcc0016;
     }
 }
