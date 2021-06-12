@@ -26,4 +26,4 @@ Homework: [Timer](https://pavelpleshkov.github.io/JS_Homework/Lesson-19/ "Homewo
 
 ## Project
 
-Homework: [Project](https://pavelpleshkov.github.io/JS_Homework/Project/ "Project")
+[Project](https://pavelpleshkov.github.io/JS_Homework/Project/ "Project")
