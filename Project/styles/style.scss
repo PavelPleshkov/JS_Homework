@@ -87,7 +87,7 @@ a {
         text-transform: uppercase;
         text-align: center;
         // text-shadow: 0px 5px 5px #ffe1dd;
-        text-shadow: 0px 5px 5px $mainColor;
+        text-shadow: 0px 5px 5px $titleColor;
 
         @media (min-width: 768px) {
             margin-top: 20px;
@@ -200,6 +200,7 @@ a {
     &Info{
         // width: 100%;
         // height: 20px;
+        // height: 400px;
         padding: 10px 20px;
         margin: 10px 20px;
         // border: 2px solid #fff;
