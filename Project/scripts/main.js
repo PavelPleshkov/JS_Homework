@@ -5,6 +5,11 @@ const mainBtnForce = mainBtns.getElementsByClassName('mainBtn_force')[0];
 const mainBtnBurn = mainBtns.getElementsByClassName('mainBtn_burn')[0];
 const infoBlock = document.createElement('div');
 infoBlock.classList.add('mainInfo');
+let activeBtn;
+
+window.onload = () => {
+
+}
 
 mainBtns.addEventListener('click', addInfoBlock);
 mainBtns.addEventListener('click', fillInfoBlock);
@@ -34,7 +39,7 @@ function fillInfoBlock(e) {
     infoBlock.innerHTML = `You choose ${choise}!`;
 }
 
-let activeBtn;
+// let activeBtn;
 function activateBtn(e) {
     if (e.target.classList.contains('mainBtn') || e.target.parentElement.classList.contains('mainBtn')) {
         if (activeBtn) {

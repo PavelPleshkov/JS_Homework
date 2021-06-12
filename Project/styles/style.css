@@ -35,7 +35,7 @@ a:hover {
       grid-template-columns: 1fr;
   -ms-grid-rows: auto 1fr auto;
       grid-template-rows: auto 1fr auto;
-  color: #ffe1dd;
+  color: #e2e2e2;
   font-family: 'Lato', sans-serif;
   background-color: #0000008a;
   -webkit-box-shadow: 0 0 80px 30px #000000b5;
@@ -143,7 +143,7 @@ a:hover {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: inherit;
-  font: 200 14px 'Lato', sans-serif;
+  font: 200 18px 'Lato', sans-serif;
   background-color: transparent;
   border-radius: 10px;
   border-top-color: #907979;
@@ -154,6 +154,12 @@ a:hover {
   transition: .2s;
   border-width: 3px;
   border-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .mainBtn {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 992px) {

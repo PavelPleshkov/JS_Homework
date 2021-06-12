@@ -30,8 +30,8 @@ a {
     // background-image: url("../images/wp2639533-gym-wallpaper-hd.jpg");
     // background: #45301c url("../images/582d763a59515.jpg");
     // background: $baseColor url("../images/582d763a59515.jpg");
-    background: url("../images/582d763a59515.jpg");
     // background-blend-mode: multiply;
+    background: url("../images/582d763a59515.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -47,7 +47,8 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    color:#ffe1dd;
+    // color:#fff7d2;
+    color: #e2e2e2;
     // color: $textColor;
     font-family: 'Lato', sans-serif;
     // background-color: #98918b8b;
@@ -126,7 +127,7 @@ a {
         // height: 40px;
         box-sizing: border-box;
         color: inherit;
-        font: 200 14px 'Lato', sans-serif;
+        font: 200 18px 'Lato', sans-serif;
         // background-color: #ffffff12;
         background-color: transparent;
         border-radius: 10px;
@@ -137,6 +138,10 @@ a {
         transition: .2s;
         border-width: 3px;
         border-color: transparent;
+
+        @media (min-width: 768px) {
+            font-size: 16px;
+        }
 
         @media (min-width: 992px) {
             margin: 20px;
