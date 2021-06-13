@@ -7,6 +7,11 @@ const infoBlock = document.createElement('p');
 infoBlock.classList.add('mainInfo');
 let activeBtn;
 let way;
+const btnGo = document.createElement('button');
+btnGo.classList.add('mainInfoBtn');
+btnGo.setAttribute('type', 'button');
+btnGo.innerHTML = 'Go';
+btnGo.addEventListener('click', showPage2);
 
 // window.onload = () => {
 //     if (localStorage.getItem('way')) {
@@ -42,9 +47,20 @@ function fillInfoBlock(e) {
     // }
     
 
-    infoBlock.innerHTML = `You choose ${way}!`;
+    // infoBlock.innerHTML = `You choose ${way}!`;
+    infoBlock.innerHTML = createInfoText(way);
+    infoBlock.insertAdjacentElement('beforeend', btnGo);
+    // btnGo.addEventListener('click', showPage2);
     
     // return way;
+}
+
+function createInfoText(way) {
+    // let info = `<p class="mainInfoText">${way}</p>
+    //     <button class="mainInfoBtn" type="button">Go</button>`;
+    let info = `<p class="mainInfoText">${way}</p>`;
+
+    return info;
 }
 
 function activateBtn(e) {
@@ -66,3 +82,9 @@ function activateBtn(e) {
 // function saveWayToLocalStorage(e) {
 //     localStorage.setItem('way', way);
 // }
+//--------------------------------------------------------------
+
+function showPage2() {
+    console.log('show page 2');
+    
+}

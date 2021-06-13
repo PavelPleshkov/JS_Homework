@@ -66,6 +66,38 @@ a:hover {
   }
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 10px;
+}
+
+.header .smile {
+  display: inline-block;
+  color: #ff0000;
+}
+
+.header #btnColorTheme {
+  padding: 3px 5px;
+  margin: 0 10px;
+  background-color: #ffbb0037;
+  color: #ff000066;
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.header #btnColorTheme:hover {
+  color: #ff0000;
+  background-color: #ffbb0037;
+  -webkit-box-shadow: 0 0 50px 35px #ffbb0037;
+          box-shadow: 0 0 50px 35px #ffbb0037;
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -188,28 +220,87 @@ a:hover {
   margin-left: 20px;
 }
 
-.mainBtn:active, .mainBtnActive, .mainBtnActive:hover {
+.mainBtnActive, .mainBtnActive:hover {
   background-color: #ff000016;
   -webkit-transform: scale(0.97);
           transform: scale(0.97);
 }
 
-.mainBtn:active span::before, .mainBtnActive span::before, .mainBtnActive:hover span::before {
+.mainBtnActive span::before, .mainBtnActive:hover span::before {
   content: "\f101";
   font-family: FontAwesome;
   margin-right: 20px;
 }
 
-.mainBtn:active span::after, .mainBtnActive span::after, .mainBtnActive:hover span::after {
+.mainBtnActive span::after, .mainBtnActive:hover span::after {
   content: "\f100";
   font-family: FontAwesome;
   margin-left: 20px;
 }
 
 .mainInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px 20px;
   margin: 10px 20px;
   border-radius: 10px;
   background-color: #ff000016;
+}
+
+.mainInfoText {
+  margin: 0 10px;
+  padding: 5px;
+}
+
+.mainInfoBtn {
+  display: block;
+  width: 90px;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: #ff000037;
+  color: #e2e2e2;
+  text-transform: uppercase;
+  text-align: left;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.mainInfoBtn::after {
+  display: block;
+  float: right;
+  content: "\f105";
+  font-family: FontAwesome;
+}
+
+.mainInfoBtn:hover::after {
+  display: block;
+  float: right;
+  content: "\f101";
+  font-family: FontAwesome;
+}
+
+.mainInfoBtn:active {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 20px;
+  color: #ff000037;
+  font-size: 14px;
 }
 /*# sourceMappingURL=styleRed.css.map */
