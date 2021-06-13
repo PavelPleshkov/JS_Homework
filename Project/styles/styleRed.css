@@ -15,7 +15,7 @@ a:hover {
   text-decoration: none;
 }
 
-.mainWrapper {
+.wrapper {
   width: 100%;
   background: url("../images/582d763a59515.jpg");
   background-size: cover;
@@ -93,9 +93,9 @@ a:hover {
 
 .header #btnColorTheme:hover {
   color: #ff0000;
-  background-color: #ffbb0037;
-  -webkit-box-shadow: 0 0 50px 35px #ffbb0037;
-          box-shadow: 0 0 50px 35px #ffbb0037;
+  background-color: #ffbb0066;
+  -webkit-box-shadow: 0 0 50px 15px #ffbb0066;
+          box-shadow: 0 0 50px 15px #ffbb0066;
 }
 
 .main {
@@ -130,6 +130,22 @@ a:hover {
     padding: 20px;
     font-size: 50px;
   }
+}
+
+.mainWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .mainContent {
@@ -204,17 +220,13 @@ a:hover {
   background-color: #ffffff12;
 }
 
-.mainBtn:hover span {
-  display: block;
-}
-
-.mainBtn:hover span::before {
+.mainBtn:hover::before {
   content: "\f105";
   font-family: FontAwesome;
   margin-right: 20px;
 }
 
-.mainBtn:hover span::after {
+.mainBtn:hover::after {
   content: "\f104";
   font-family: FontAwesome;
   margin-left: 20px;
@@ -226,25 +238,23 @@ a:hover {
           transform: scale(0.97);
 }
 
-.mainBtnActive span::before, .mainBtnActive:hover span::before {
+.mainBtnActive::before, .mainBtnActive:hover::before {
   content: "\f101";
   font-family: FontAwesome;
   margin-right: 20px;
 }
 
-.mainBtnActive span::after, .mainBtnActive:hover span::after {
+.mainBtnActive::after, .mainBtnActive:hover::after {
   content: "\f100";
   font-family: FontAwesome;
   margin-left: 20px;
 }
 
 .mainInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
   padding: 10px 20px;
   margin: 10px 20px;
   border-radius: 10px;
@@ -259,6 +269,7 @@ a:hover {
 .mainInfoBtn {
   display: block;
   width: 90px;
+  max-height: 40px;
   padding: 5px 20px;
   border-radius: 10px;
   background-color: #ff000037;
@@ -267,6 +278,7 @@ a:hover {
   text-align: left;
   -webkit-transition: .2s;
   transition: .2s;
+  font-size: 14px;
 }
 
 .mainInfoBtn::after {

@@ -26,7 +26,8 @@ mainBtns.addEventListener('click', fillInfoBlock);
 mainBtns.addEventListener('click', activateBtn);
 
 function addInfoBlock(e) {
-    if (e.target.tagName == 'BUTTON' || e.target.tagName == 'SPAN') {
+    if (e.target.tagName == 'BUTTON') {
+    // if (e.target.tagName == 'BUTTON' || e.target.tagName == 'SPAN') {
         if (main.lastElementChild.classList.contains('mainInfo')) {
             main.replaceChild(infoBlock, main.lastElementChild)
         } else {
@@ -37,10 +38,15 @@ function addInfoBlock(e) {
 
 function fillInfoBlock(e) {
     // if (!way) {
-        if (e.target.tagName == 'SPAN') {
+        // if (e.target.tagName == 'SPAN') {
+        //     way = e.target.innerHTML;
+        // } else if (e.target.tagName == 'BUTTON') {
+        //     way = e.target.children[0].innerHTML;
+        // } else {
+        //     return;
+        // }
+        if (e.target.tagName == 'BUTTON') {
             way = e.target.innerHTML;
-        } else if (e.target.tagName == 'BUTTON') {
-            way = e.target.children[0].innerHTML;
         } else {
             return;
         }
@@ -64,16 +70,20 @@ function createInfoText(way) {
 }
 
 function activateBtn(e) {
-    if (e.target.classList.contains('mainBtn') || e.target.parentElement.classList.contains('mainBtn')) {
+    // if (e.target.classList.contains('mainBtn') || e.target.parentElement.classList.contains('mainBtn')) {
+    if (e.target.classList.contains('mainBtn')) {
         if (activeBtn) {
             activeBtn.classList.remove('mainBtnActive');
         }
 
-        if (e.target.classList.contains('mainBtn')) {
-            activeBtn = e.target;
-        } else {
-            activeBtn = e.target.parentElement;
-        }
+        activeBtn = e.target;
+        
+
+        // if (e.target.classList.contains('mainBtn')) {
+        //     activeBtn = e.target;
+        // } else {
+        //     activeBtn = e.target.parentElement;
+        // }
 
         activeBtn.classList.add('mainBtnActive');
     }
@@ -86,5 +96,5 @@ function activateBtn(e) {
 
 function showPage2() {
     console.log('show page 2');
-    
+
 }
