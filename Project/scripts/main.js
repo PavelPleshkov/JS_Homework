@@ -13,6 +13,9 @@ btnGo.setAttribute('type', 'button');
 btnGo.innerHTML = 'Go';
 btnGo.addEventListener('click', showPage2);
 
+
+
+
 // window.onload = () => {
 //     if (localStorage.getItem('way')) {
 //         way = localStorage.getItem('way');
@@ -93,8 +96,55 @@ function activateBtn(e) {
 //     localStorage.setItem('way', way);
 // }
 //--------------------------------------------------------------
+const mainTable = document.createElement('table');
+mainTable.classList.add('mainTable');
+const mainTableRow = document.createElement('tr');
+mainTableRow.classList.add('mainTableRow');
+const mainTableCellFirst = document.createElement('th');
+const mainTableCell = document.createElement('td');
+mainTableCellFirst.classList.add('mainTableCell');
+mainTableCell.classList.add('mainTableCell');
+const newTable = mainTable.cloneNode(true);
+// const newTableRow = mainTableRow.cloneNode(true);
+
+for (let i = 1; i <= 28; i++) {
+    const newTableRow = mainTableRow.cloneNode(true);
+
+    for (let j = 1; j <= 10; j++) {
+        let newTableCell;
+        if (i == 1) {
+            newTableCell = mainTableCellFirst.cloneNode(true);
+        } else {
+            newTableCell = mainTableCell.cloneNode(true);
+        }
+        if (i == 1 && j == 1) {
+            newTableCell.innerHTML = 'Workout exercises';
+        } else if (i == 1 && j == 2) {
+            newTableCell.innerHTML = 'Rest';
+        } else if (i == 1) {
+            newTableCell.innerHTML = `${j - 2}`;
+        } else if (j == 2) {
+            newTableCell.innerHTML = `2'`;
+        } else {
+            newTableCell.innerHTML = '<input type="text">';
+        }
+        // newTableCell.innerHTML = '123';
+        newTableRow.appendChild(newTableCell);
+    }
+
+    newTable.appendChild(newTableRow);
+}
+
 
 function showPage2() {
-    console.log('show page 2');
+    // console.log('show page 2');
+    
+    
 
+    main.innerHTML = `<p class="mainWay">${way}</p>`
+    main.appendChild(newTable);
+
+
+        // <table class="mainTable">
+        // </table>`;
 }

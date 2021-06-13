@@ -9,9 +9,13 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a:hover {
+  color: #ffbb00;
   text-decoration: none;
 }
 
@@ -298,6 +302,33 @@ a:hover {
 .mainInfoBtn:active {
   -webkit-transform: scale(0.97);
           transform: scale(0.97);
+}
+
+.mainWay {
+  padding: 0 20px;
+}
+
+.mainTable {
+  margin: 10px 20px;
+  background-color: #ffbb0066;
+  border-collapse: collapse;
+}
+
+.mainTableRow {
+  height: 20px;
+}
+
+.mainTableRow .mainTableCell:nth-child(1) {
+  text-align: left;
+}
+
+.mainTableCell {
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.mainTableCell input {
+  width: 20px;
 }
 
 .footer {
