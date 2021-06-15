@@ -49,7 +49,11 @@ function fillInfoBlock(e) {
         //     return;
         // }
         if (e.target.tagName == 'BUTTON') {
-            way = e.target.innerHTML;
+            localStorage.setItem('way', JSON.stringify(e.target.innerHTML));
+            way = JSON.parse(localStorage.getItem('way'));
+
+            // way = e.target.innerHTML;
+            // localStorage.setItem('way', way);
         } else {
             return;
         }
@@ -105,46 +109,118 @@ const mainTableCell = document.createElement('td');
 mainTableCellFirst.classList.add('mainTableCell');
 mainTableCell.classList.add('mainTableCell');
 const newTable = mainTable.cloneNode(true);
-// const newTableRow = mainTableRow.cloneNode(true);
 
-for (let i = 1; i <= 28; i++) {
-    const newTableRow = mainTableRow.cloneNode(true);
+function createTableContent() {
+    for (let i = 1; i <= 28; i++) {
+        const newTableRow = mainTableRow.cloneNode(true);
+    
+        for (let j = 1; j <= 10; j++) {
+            let newTableCell;
+            const numOfExercises = 8;
 
-    for (let j = 1; j <= 10; j++) {
-        let newTableCell;
-        if (i == 1) {
-            newTableCell = mainTableCellFirst.cloneNode(true);
-        } else {
-            newTableCell = mainTableCell.cloneNode(true);
+            if (i == 1) {
+                newTableCell = mainTableCellFirst.cloneNode(true);
+            } else {
+                newTableCell = mainTableCell.cloneNode(true);
+            }
+            if (i == 1 && j == 1) {
+                newTableCell.innerHTML = 'Workout exercises';
+            } else if (i == 1 && j == 2) {
+                newTableCell.innerHTML = 'Rest';
+            } else if (i == 1) {
+                newTableCell.innerHTML = `${j - 2}`;
+            } else if (j == 2) {
+                newTableCell.innerHTML = `2'`;
+                newTableCell.classList.add('mainTableCellRest');
+            } else {
+                // newTableCell.innerHTML = '<input type="text">';
+                // newTable.addEventListener('click', activateTd);
+            }
+            fillFirstColumn();
+            function fillFirstColumn() {
+                let day = 1;
+                if (j == 1 && i >= 2) {
+
+                    if (i == 2) {
+                        newTableCell.classList.add('mainTableCellDay');
+                        newTableCell.innerHTML = `Day ${day}`;
+                    } else if (i == 2 + (numOfExercises + 1)) {
+                        newTableCell.classList.add('mainTableCellDay');
+                        newTableCell.innerHTML = `Day ${++day}`;
+                    } else if (i == 2 + (numOfExercises + 1) * 2) {
+                        newTableCell.classList.add('mainTableCellDay');
+                        newTableCell.innerHTML = `Day ${day + 2}`;
+                    } else {
+                        newTableCell.classList.add('mainTableCellExercise');
+                        // newTableCell.innerHTML = `${i - 2}. works`;
+                        fillFirstColumnExercises();
+                    }
+
+                    // if (i != 2 && i != 2 + (numOfExercises + 1) && i != 2 + (numOfExercises + 1) * 2) {
+                    //     newTableCell.classList.add('mainTableCellExercise');
+                    //     newTableCell.innerHTML = `${i - 2}. works`;
+                    // }
+                }
+            }
+            function fillFirstColumnExercises() {
+                const exerciseCells = document.getElementsByClassName('mainTableCellExercise');
+                for (let n = 1; n <= exerciseCells.length/3; n++) {
+                    exerciseCells[n].innerHTML = `${n}.`;
+                }
+            }
+
+            
+            newTableRow.appendChild(newTableCell);
         }
-        if (i == 1 && j == 1) {
-            newTableCell.innerHTML = 'Workout exercises';
-        } else if (i == 1 && j == 2) {
-            newTableCell.innerHTML = 'Rest';
-        } else if (i == 1) {
-            newTableCell.innerHTML = `${j - 2}`;
-        } else if (j == 2) {
-            newTableCell.innerHTML = `2'`;
-        } else {
-            newTableCell.innerHTML = '<input type="text">';
-        }
-        // newTableCell.innerHTML = '123';
-        newTableRow.appendChild(newTableCell);
+
+        newTable.appendChild(newTableRow);
     }
+    
+    newTable.addEventListener('click', activateTd);
 
-    newTable.appendChild(newTableRow);
+    return newTable;
 }
 
+function activateTd(e) {
+    if (e.target.tagName == 'TD' && !e.target.classList.contains('mainTableCellRest') && !e.target.classList.contains('mainTableCellExercise')) {
+        let input = document.createElement('input');
+        input.type = 'text';
+        input.addEventListener('blur', diactivateTd);
+        input.addEventListener('keydown', diactivateTdByEnter);
+
+        function diactivateTd() {
+            e.target.innerHTML = input.value;
+        }
+
+        function diactivateTdByEnter(e) {
+            if (e.keyCode == 13) {
+                input.blur();
+            }
+        }
+
+        if (!e.target.innerHTML) {
+            e.target.insertAdjacentElement('afterbegin', input);
+            input.focus();
+        } else if (!e.target.firstElementChild) {
+            e.target.innerHTML = '<input type="text" value ="' + e.target.innerHTML + '">';
+            input = e.target.firstElementChild;
+            input.focus();
+            input.selectionStart = input.value.length;
+            // input.setSelectionRange(0, input.value.length);
+            input.addEventListener('blur', diactivateTd);
+            input.addEventListener('keydown', diactivateTdByEnter);
+        } else if (e.target.firstElementChild.tagName == 'INPUT') {
+            e.target.firstElementChild.focus();
+        }
+    }
+}
 
 function showPage2() {
     // console.log('show page 2');
-    
-    
 
-    main.innerHTML = `<p class="mainWay">${way}</p>`
-    main.appendChild(newTable);
+    main.innerHTML = `<h2 class="mainWay">${way}</h2>`;
+    // createTableContent();
+    // main.appendChild(newTable);
+    main.appendChild(createTableContent());
 
-
-        // <table class="mainTable">
-        // </table>`;
 }

@@ -305,6 +305,8 @@ a:hover {
 }
 
 .mainWay {
+  font-size: 16px;
+  font-weight: 500;
   padding: 0 20px;
 }
 
@@ -315,7 +317,7 @@ a:hover {
 }
 
 .mainTableRow {
-  height: 30px;
+  min-height: 30px;
 }
 
 .mainTableRow .mainTableCell:nth-child(1) {
@@ -325,6 +327,11 @@ a:hover {
 .mainTableCell {
   border: 1px solid #000000;
   text-align: center;
+  padding: 5px;
+}
+
+.mainTableCellRest, .mainTableCellDay {
+  color: #a5a5a5;
 }
 
 .mainTableCell input {
