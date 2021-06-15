@@ -323,7 +323,7 @@ a {
         // border: 1px solid #000000;
 
         &Row {
-            height: 20px;
+            height: 30px;
 
             .mainTableCell {
                 &:nth-child(1) {
@@ -341,8 +341,11 @@ a {
             
 
             input {
-                // display: block;
+                // display: inline-block;
                 width: 20px;
+                // width: 100%;
+                // width: auto;
+                // height: 100%;
             }
         }
     }

@@ -21,8 +21,11 @@ body {
 
 a {
 	color: inherit;
+    text-decoration: none;
+    transition: .2s;
 
 	&:hover {
+        color: $baseColor;
 		text-decoration: none;
 	}
 }
@@ -302,6 +305,47 @@ a {
 
             &:active {
                 transform: scale(0.97);
+            }
+        }
+    }
+
+    &Way {
+        padding: 0 20px;
+    }
+
+    &Table {
+        // width: 100%;
+        margin: 10px 20px;
+        // height: 50px;
+
+        background-color: $wrapperColor;
+        border-collapse: collapse;
+        // border: 1px solid #000000;
+
+        &Row {
+            height: 30px;
+
+            .mainTableCell {
+                &:nth-child(1) {
+                    text-align: left;
+                }
+            }
+        }
+
+        &Cell {
+            // display: block;
+            // display: flex;
+            // justify-content: center;
+            border: 1px solid #000000;
+            text-align: center;
+            
+
+            input {
+                // display: inline-block;
+                width: 20px;
+                // width: 100%;
+                // width: auto;
+                // height: 100%;
             }
         }
     }
