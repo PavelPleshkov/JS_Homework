@@ -1,3 +1,5 @@
+// import {changeTheme} from 'colorTheme.js';
+
 const main = document.getElementsByClassName('main')[0];
 const mainBtns = document.getElementsByClassName('mainBtns')[0];
 const mainBtnWeight = mainBtns.getElementsByClassName('mainBtn_weight')[0];
@@ -12,9 +14,6 @@ btnGo.classList.add('mainInfoBtn');
 btnGo.setAttribute('type', 'button');
 btnGo.innerHTML = 'Go';
 btnGo.addEventListener('click', showPage2);
-
-
-
 
 // window.onload = () => {
 //     if (localStorage.getItem('way')) {

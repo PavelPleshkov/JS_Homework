@@ -23,3 +23,4 @@ function changeTheme(e) {
     }
 }
 
+// export default changeTheme();
