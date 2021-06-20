@@ -113,10 +113,10 @@ function getUser(arr) {
 //  Задание 4:
 // Переписать последнее задание с ООП на новый синтаксис. Проверить работоспособность всех методов.
 
-function Animal(name) {
-    this.name = name;
-    this._foodAmount = 50;
-}
+// function Animal(name) {
+//     this.name = name;
+//     this._foodAmount = 50;
+// }
 
 class Animal {
     constructor(name) {
@@ -124,46 +124,88 @@ class Animal {
         this._foodAmount = 50;
     }
     
-}
-
-Animal.prototype._formatFoodAmount = function() {
-    return this._foodAmount + ' гр.';
-};
-
-Animal.prototype.dailyNorm = function(amount) {
-    if (!arguments.length) return this._formatFoodAmount();
-
-    if (amount < 50 || amount > 500) {
-        // throw new Error(amount + ' гр. - что-то не то в миске! :(');
-        return amount + ' гр. - что-то не то в миске! :(';
+    _formatFoodAmount() {
+        return this._foodAmount + ' гр.';
     }
 
-    this._foodAmount = amount;
-};
+    dailyNorm(amount) {
+        if (!arguments.length) return this._formatFoodAmount();
 
-Animal.prototype.feed = function() {
-    console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-};
+        if (amount < 50 || amount > 500) {
+            // throw new Error(amount + ' гр. - что-то не то в миске! :(');
+            return amount + ' гр. - что-то не то в миске! :(';
+        }
+    
+        this._foodAmount = amount;
+    }
 
-function Cat(name) {
-    Animal.apply(this, arguments);
+    feed() {
+        console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+    }
 }
 
-Cat.prototype = Object.create(Animal.prototype);
-Cat.prototype.constructor = Cat;
+// Animal.prototype._formatFoodAmount = function() {
+//     return this._foodAmount + ' гр.';
+// };
 
-Cat.prototype.feed = function() {
-    Animal.prototype.feed.apply(this, arguments);
-    console.log('Кот доволен ^_^\n');
+// Animal.prototype.dailyNorm = function(amount) {
+//     if (!arguments.length) return this._formatFoodAmount();
 
-    return this;
-};
+//     if (amount < 50 || amount > 500) {
+//         // throw new Error(amount + ' гр. - что-то не то в миске! :(');
+//         return amount + ' гр. - что-то не то в миске! :(';
+//     }
 
-Cat.prototype.stroke = function() {
-    console.log('Гладим кота.\n');
+//     this._foodAmount = amount;
+// };
 
-    return this;
-};
+// Animal.prototype.feed = function() {
+//     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+// };
+
+// function Cat(name) {
+//     Animal.apply(this, arguments);
+// }
+
+class Cat extends Animal {
+    constructor(name) {
+        // Animal.apply(this, arguments);
+        super(name);
+    }
+
+    feed() {
+        // Animal.prototype.feed.apply(this, arguments);
+        super.feed();
+        console.log('Кот доволен ^_^\n');
+
+        return this;
+    }
+
+    stroke() {
+        console.log('Гладим кота.\n');
+
+        return this;
+    }
+}
+
+
+// Cat.prototype = Object.create(Animal.prototype);
+// Cat.prototype.constructor = Cat;
+
+// Cat.prototype.feed = function() {
+//     Animal.prototype.feed.apply(this, arguments);
+//     console.log('Кот доволен ^_^\n');
+
+//     return this;
+// };
+
+// Cat.prototype.stroke = function() {
+//     console.log('Гладим кота.\n');
+
+//     return this;
+// };
+
+
 
 var barsik = new Cat('Барсик');
 
@@ -192,9 +234,43 @@ barsik = null;
 
 
 //  Задание 5:
-// Написать функцию-промис, которая принимает в себя 2 целых числа и выводит в консоль числа, входящие в диапазон,
-// каждую секунду. После окончания работы интервала в консоль должно вывестись последнее запомненное число.
+// Написать функцию-промис, которая принимает в себя 2 целых числа и выводит в консоль числа, входящие в диапазон,каждую секунду. 
+//После окончания работы интервала в консоль должно вывестись последнее запомненное число.
 // Если в функцию первым параметром было передано бОльшее число - значения параметров следует поменять местами.
 // В случае, если в функцию были переданы не целые числа - промис должен быть завершен неуспешно.
 
-//isInteger(), promise, () => {}
+//isInteger(), promise, () => {}, деструктуризация для перемены местами аргументов
+
+promiseShowNums(2, -1)
+    .then(result => console.log(`Last number is: ${result}`))
+    .catch(error => console.log(`There was the error in promise: ${error}`))
+    .finally(() => console.log(`Promise has finished`));
+
+// promiseShowNums(3, -1.4)
+//     .then(result => console.log(`Last number is: ${result}`))
+//     .catch(error => console.log(`There was the error in promise: ${error}`))
+//     .finally(() => console.log(`Promise has finished`));
+
+function promiseShowNums(start, end) {
+    return new Promise((resolve, reject) => {
+        console.log(`Promise runs with ${start}, ${end}`);
+
+        if (Number.isInteger(start) && Number.isInteger(end)) {
+            if (start > end) {
+                [start, end] = [end, start];
+            }
+
+            const intervalId = setInterval(() => {
+                if (start >= end) {
+                    clearInterval(intervalId);
+                    result = start;
+                    resolve(result);
+                }
+
+                console.log(start++);
+            }, 1000);
+        } else {
+            reject(`Some of arguments ${start}, ${end} isn't integer!`);
+        }
+    });
+}
