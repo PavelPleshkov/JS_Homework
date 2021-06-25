@@ -1,11 +1,11 @@
-const btnColorTheme = document.getElementById('btnColorTheme');
+// const btnColorTheme = document.getElementById('btnColorTheme');
 let styleYellow = document.getElementById('yellowStyle');
 // const styleRed = document.getElementById('redStyle');
 let styleRed;
 const head = document.getElementsByTagName('head')[0];
 const title = head.getElementsByTagName('title')[0];
 
-btnColorTheme.addEventListener('click', changeTheme);
+// btnColorTheme.addEventListener('click', changeTheme);
 
 function changeTheme(e) {
     if (styleYellow) {
@@ -23,4 +23,5 @@ function changeTheme(e) {
     }
 }
 
-// export default changeTheme();
+// export {changeTheme};
+export default changeTheme;

@@ -1,4 +1,5 @@
-// import {changeTheme} from 'colorTheme.js';
+// import {changeTheme} from './colorTheme.js';
+import changeTheme from './colorTheme.js';
 
 const main = document.getElementsByClassName('main')[0];
 const mainBtns = document.getElementsByClassName('mainBtns')[0];
@@ -13,8 +14,40 @@ const btnGo = document.createElement('button');
 btnGo.classList.add('mainInfoBtn');
 btnGo.setAttribute('type', 'button');
 btnGo.innerHTML = 'Go';
-btnGo.addEventListener('click', showPage2);
+btnGo.addEventListener('click', showPageWorkouts);
 
+const btnColorTheme = document.getElementById('btnColorTheme');
+btnColorTheme.addEventListener('click', changeTheme);
+
+
+const linkRefresh = document.getElementsByClassName('linkRefresh')[0];
+linkRefresh.addEventListener('click', refreshApp);
+function refreshApp(e) {
+    // e.preventDefault();
+    // location.hash = '';
+    localStorage.clear();
+}
+
+const headerNav = document.getElementsByClassName('headerNav')[0];
+headerNav.addEventListener('click', goToPage);
+function goToPage(e) {
+    if (e.target.tagName == 'A') {
+        if (e.target.classList.contains('linkWorkouts') && localStorage.getItem('way')) {
+            location.hash = `/${way}`;
+            e.target.setAttribute('href', `/#/${way}`);
+            showPageWorkouts();
+        }
+        if (e.target.classList.contains('linkStartPage') && localStorage.getItem('startMain')) {
+            location.hash = '#/';
+            main.innerHTML = JSON.parse(localStorage.getItem('startMain'));
+            addListenersToMainBtns();
+        }
+    }
+}
+
+window.onload = () => {
+    localStorage.setItem('startMain', JSON.stringify(main.innerHTML));
+};
 // window.onload = () => {
 //     if (localStorage.getItem('way')) {
 //         way = localStorage.getItem('way');
@@ -23,9 +56,14 @@ btnGo.addEventListener('click', showPage2);
 // }
 
 // mainBtns.addEventListener('click', saveWayToLocalStorage);
-mainBtns.addEventListener('click', addInfoBlock);
-mainBtns.addEventListener('click', fillInfoBlock);
-mainBtns.addEventListener('click', activateBtn);
+function addListenersToMainBtns() {
+    const mainBtns = document.getElementsByClassName('mainBtns')[0];
+
+    mainBtns.addEventListener('click', addInfoBlock);
+    mainBtns.addEventListener('click', fillInfoBlock);
+    mainBtns.addEventListener('click', activateBtn);
+}
+addListenersToMainBtns();
 
 function addInfoBlock(e) {
     if (e.target.tagName == 'BUTTON') {
@@ -62,7 +100,7 @@ function fillInfoBlock(e) {
     // infoBlock.innerHTML = `You choose ${way}!`;
     infoBlock.innerHTML = createInfoText(way);
     infoBlock.insertAdjacentElement('beforeend', btnGo);
-    // btnGo.addEventListener('click', showPage2);
+    // btnGo.addEventListener('click', showPageWorkouts);
     
     // return way;
 }
@@ -110,6 +148,16 @@ mainTableCell.classList.add('mainTableCell');
 const newTable = mainTable.cloneNode(true);
 
 function createTableContent() {
+    // if (main.children[1] && main.children[1].classList.contains('mainTable')) {
+    //     return;
+    // } else {
+
+    // if (newTable.children) {
+    //     return;
+    // }
+    // else {
+
+    
     for (let i = 1; i <= 28; i++) {
         const newTableRow = mainTableRow.cloneNode(true);
     
@@ -178,7 +226,10 @@ function createTableContent() {
     newTable.addEventListener('click', activateTd);
 
     return newTable;
+// }
 }
+
+const tableFilled = createTableContent();
 
 function activateTd(e) {
     if (e.target.tagName == 'TD' && !e.target.classList.contains('mainTableCellRest') && !e.target.classList.contains('mainTableCellExercise')) {
@@ -214,12 +265,24 @@ function activateTd(e) {
     }
 }
 
-function showPage2() {
+function showPageWorkouts() {
     // console.log('show page 2');
-
+    location.hash = `/${way}`;
     main.innerHTML = `<h2 class="mainWay">${way}</h2>`;
+    // main.innerHTML += `${createTableContent()}`;
     // createTableContent();
     // main.appendChild(newTable);
-    main.appendChild(createTableContent());
+    // window.location.hash += `${way}`;
+    
+    // if (!main.children[1]) {
+    //     main.appendChild(createTableContent());
+    // }
 
+    // if (main.children[1] && main.children[1].classList.contains('mainTable')) {
+    //     main.replaceChild(createTableContent(), main.children[1]);
+    // } else {
+    //     main.appendChild(createTableContent());
+    // }
+    // main.appendChild(createTableContent());
+    main.appendChild(tableFilled);
 }

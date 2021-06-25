@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="styles/style.css"> -->
     <link id="yellowStyle" rel="stylesheet" href="styles/style.css">
     <title>Train hard</title>
+    <script type="module" src="scripts/app.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -17,8 +18,13 @@
                 <div class="theme">
                     <span class="smile fa fa-smile-o fa-spin"></span>
                     <button id="btnColorTheme" type="button">Change theme</button>
-                    <a href="index.html">Refresh</a>
+                    <!-- <a href="index.html">Refresh app</a> -->
                 </div>
+                <a class="linkRefresh" href="">Refresh app</a>
+                <nav class="headerNav">
+                    <a href="/#/" class="headerNavLink linkStartPage">Start Page</a>
+                    <a href="/#/" class="headerNavLink linkWorkouts">Workouts</a>
+                </nav>
             </header>
             <main class="main">
                 <!-- <h1 class="mainTitle">Train hard</h1> -->
@@ -27,11 +33,11 @@
                     <section class="mainContent">
                         <p>Choose your way</p>
                     </section>
-                    <section class="mainBtns">
+                    <nav class="mainBtns">
                         <button class="mainBtn mainBtn_weight" type="button">Weigth</button>
                         <button class="mainBtn mainBtn_force" type="button">Force</button>
                         <button class="mainBtn mainBtn_burn" type="button">Burning</button>
-                    </section>
+                    </nav>
                 </div>
             </main>
             <footer class="footer">
@@ -45,7 +51,7 @@
         </div>
     </div>
 
-    <script src="scripts/app.js"></script>
-    <script src="scripts/colorTheme.js"></script>
+    <!-- <script src="scripts/app.js"></script> -->
+    <!-- <script src="scripts/colorTheme.js"></script> -->
 </body>
 </html>

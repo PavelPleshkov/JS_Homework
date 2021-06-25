@@ -102,6 +102,22 @@ a {
             box-shadow: 0 0 50px 15px $redWrapperColor;
         }
     }
+
+    .linkRefresh {
+        display: block;
+        margin-right: 15px;
+    }
+
+    &Nav {
+        display: flex;
+        align-items: center;
+
+        &Link {
+            display: block;
+            margin: 0 15px;
+            padding: 5px 0 3px;
+        }
+    }
 }
 
 .main {

@@ -102,6 +102,26 @@ a:hover {
           box-shadow: 0 0 50px 15px #ff000066;
 }
 
+.header .linkRefresh {
+  display: block;
+  margin-right: 15px;
+}
+
+.headerNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerNavLink {
+  display: block;
+  margin: 0 15px;
+  padding: 5px 0 3px;
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
