@@ -1,5 +1,9 @@
 // import {changeTheme} from './colorTheme.js';
+import Workouts from './models/workouts.js';
 import changeTheme from './colorTheme.js';
+
+const btnColorTheme = document.getElementById('btnColorTheme');
+btnColorTheme.addEventListener('click', changeTheme);
 
 const main = document.getElementsByClassName('main')[0];
 const mainBtns = document.getElementsByClassName('mainBtns')[0];
@@ -16,9 +20,9 @@ btnGo.setAttribute('type', 'button');
 btnGo.innerHTML = 'Go';
 btnGo.addEventListener('click', showPageWorkouts);
 
-const btnColorTheme = document.getElementById('btnColorTheme');
-btnColorTheme.addEventListener('click', changeTheme);
-
+window.onload = () => {
+    localStorage.setItem('startMain', JSON.stringify(main.innerHTML));
+};
 
 const linkRefresh = document.getElementsByClassName('linkRefresh')[0];
 linkRefresh.addEventListener('click', refreshApp);
@@ -45,9 +49,7 @@ function goToPage(e) {
     }
 }
 
-window.onload = () => {
-    localStorage.setItem('startMain', JSON.stringify(main.innerHTML));
-};
+
 // window.onload = () => {
 //     if (localStorage.getItem('way')) {
 //         way = localStorage.getItem('way');
